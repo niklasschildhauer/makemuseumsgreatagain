@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azm-fS-zqi">
+                                <rect key="frame" x="179.5" y="306" width="55" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Host"/>
+                                <connections>
+                                    <action selector="didTapHost:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hAF-gb-g0z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HME-sY-ar4">
+                                <rect key="frame" x="181.5" y="373" width="51" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Join"/>
+                                <connections>
+                                    <action selector="didTapJoin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ze1-Ba-7qQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Azm-fS-zqi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1uF-1a-tZy"/>
+                            <constraint firstItem="Azm-fS-zqi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="262" id="Dgd-hX-GMZ"/>
+                            <constraint firstItem="HME-sY-ar4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HXR-nc-QlR"/>
+                            <constraint firstItem="HME-sY-ar4" firstAttribute="top" secondItem="Azm-fS-zqi" secondAttribute="bottom" constant="36" id="fJb-uT-bsw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="hostButton" destination="Azm-fS-zqi" id="CAb-OY-QT8"/>
+                        <outlet property="joinButton" destination="HME-sY-ar4" id="sDY-ua-WYg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-152" y="125"/>
+        </scene>
+        <!--Host View Controller-->
+        <scene sceneID="ylo-6O-LeL">
+            <objects>
+                <viewController storyboardIdentifier="HostViewController" id="R14-Pv-CY6" customClass="HostViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JKl-Pk-Pmk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du bist ein Host" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AC9-iV-gQd">
+                                <rect key="frame" x="146.5" y="437.5" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5JZ-dB-d5b"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AC9-iV-gQd" firstAttribute="centerY" secondItem="JKl-Pk-Pmk" secondAttribute="centerY" id="3Ei-eP-Dxc"/>
+                            <constraint firstItem="AC9-iV-gQd" firstAttribute="centerX" secondItem="JKl-Pk-Pmk" secondAttribute="centerX" id="I8c-Zj-bCA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8N3-06-pUy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="770" y="125"/>
+        </scene>
+        <!--Client View Controller-->
+        <scene sceneID="vIG-Vc-Ecb">
+            <objects>
+                <viewController storyboardIdentifier="ClientViewController" id="xWp-0e-bcy" customClass="ClientViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="45y-T1-A2z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du bist ein Client!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KP-wF-2Zl">
+                                <rect key="frame" x="140" y="437.5" width="134" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OvS-mo-N64"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1KP-wF-2Zl" firstAttribute="centerX" secondItem="45y-T1-A2z" secondAttribute="centerX" id="P1B-4S-Qfx"/>
+                            <constraint firstItem="1KP-wF-2Zl" firstAttribute="centerY" secondItem="45y-T1-A2z" secondAttribute="centerY" id="mUW-yM-Khd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q2X-zV-Te3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1603" y="125"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
