@@ -8,6 +8,11 @@
 import Foundation
 import MultipeerConnectivity
 
+protocol ConnectionManagerDelegate {
+    func didJoinSession(in: ConnectionManager)
+    func didHostSession(in: ConnectionManager)
+}
+
 class ConnectionManager: NSObject {
     private static let service = "con-manager"
     
@@ -19,6 +24,8 @@ class ConnectionManager: NSObject {
     var connected = false
     var peers: [MCPeerID] = []
     var events: [Event] = []
+    
+    var delegate: ConnectionManagerDelegate?
     
     func send(_ event: Event) {
         events.append(event)
@@ -47,7 +54,7 @@ class ConnectionManager: NSObject {
         window.rootViewController?.present(mcBrowserViewController, animated: true)
     }
     
-    func host(completion: () -> Void) {
+    func host() {
         isHosting = true
         peers.removeAll()
         events.removeAll()
@@ -60,7 +67,7 @@ class ConnectionManager: NSObject {
             serviceType: ConnectionManager.service)
         advertiserAssistant?.delegate = self
         advertiserAssistant?.startAdvertisingPeer()
-        completion()
+        delegate?.didHostSession(in: self)
     }
 }
 
@@ -111,6 +118,7 @@ extension ConnectionManager: MCBrowserViewControllerDelegate {
   func browserViewControllerDidFinish(_ browserViewController: MCBrowserViewController) {
     browserViewController.dismiss(animated: true) {
       self.connected = true
+        self.delegate?.didJoinSession(in: self)
     }
   }
 

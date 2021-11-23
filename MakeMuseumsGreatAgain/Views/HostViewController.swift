@@ -7,12 +7,19 @@
 
 import UIKit
 
+protocol HostPresenterDelegate {
+    
+}
+
 protocol HostPresenting {
     var view: HostViewing? { get set }
+    var delegate: HostPresenterDelegate? { get set }
+    
+    func viewDidLoad()
 }
 
 protocol HostViewing: AnyObject {
-
+    var presenter: HostPresenting! { get set }
 }
 
 class HostViewController: UIViewController {
@@ -45,10 +52,14 @@ class HostViewController: UIViewController {
 extension HostViewController: StoryboardInitializable { }
 
 extension HostViewController: HostViewing {
-    
 }
 
 class HostPresenter: HostPresenting {
-    var view: HostViewing?
+    var delegate: HostPresenterDelegate?
+    
+    weak var view: HostViewing?
 
+    func viewDidLoad() {
+        
+    }
 }
