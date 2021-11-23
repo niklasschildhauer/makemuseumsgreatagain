@@ -7,25 +7,48 @@
 
 import UIKit
 
+protocol ClientPresenterDelegate {
+    
+}
+
+protocol ClientPresenting {
+    var view: ClientViewing? { get set }
+    var delegate: ClientPresenterDelegate? { get set }
+    
+    func viewDidLoad()
+}
+
+protocol ClientViewing: AnyObject {
+    var presenter: ClientPresenting! { get set }
+}
+
 class ClientViewController: UIViewController {
+    
+    var presenter: ClientPresenting! {
+        didSet {
+            presenter.view = self
+        }
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ClientViewController: StoryboardInitializable { }
+
+extension ClientViewController: ClientViewing {
+}
+
+
+class ClientPresenter: ClientPresenting {
+    var delegate: ClientPresenterDelegate?
+    
+    weak var view: ClientViewing?
+    
+    func viewDidLoad() {
+        
+    }
+
+}

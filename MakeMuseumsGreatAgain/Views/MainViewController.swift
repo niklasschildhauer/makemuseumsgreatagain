@@ -7,13 +7,20 @@
 
 import UIKit
 
+protocol MainPresenterDelegate { }
+
 protocol MainPresenting {
     var view: MainViewing? { get set }
+    var delegate: MainPresenterDelegate? { get set }
+    
+    func viewDidLoad()
     func join()
     func host()
 }
 
 protocol MainViewing: AnyObject {
+    var presenter: MainPresenting! { get set }
+
     func show(hostScreen: UIViewController)
 }
 
@@ -22,7 +29,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var hostButton: UIButton!
     @IBOutlet weak var joinButton: UIButton!
     
-    var presenter: MainPresenting? {
+    var presenter: MainPresenting! {
         didSet {
             presenter?.view = self
         }
@@ -52,28 +59,25 @@ extension MainViewController: MainViewing {
 }
 
 class MainPresenter: MainPresenting {
+    var delegate: MainPresenterDelegate?
     
-    let connectionManager = ConnectionManager()
+    let connectionManager: ConnectionManager
     weak var view: MainViewing?
     
-    init() {
+    init(connectionManager: ConnectionManager) {
+        self.connectionManager = connectionManager
     }
     
+    func viewDidLoad() {
+        
+    }
+
     func join() {
         connectionManager.join()
     }
     
     func host() {
-        connectionManager.host {
-            // Hier sollte ein Delegate aufruf des Coordinators rein! Wichtig: Coordinator muss implementiert werden.
-            // Der Code darunter muss in einen Coordinator rein!
-            let hostView = HostViewController.makeFromStoryboard()
-            let hostPresenter = HostPresenter()
-            
-            hostView.presenter = hostPresenter
-            
-            view?.show(hostScreen: hostView)
-        }
+        connectionManager.host()
     }
 
 }
