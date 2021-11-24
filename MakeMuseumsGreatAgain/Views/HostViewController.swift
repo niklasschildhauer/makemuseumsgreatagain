@@ -7,19 +7,19 @@
 
 import UIKit
 
-protocol HostPresenterDelegate {
-    
-}
+protocol HostPresenterDelegate { }
 
 protocol HostPresenting {
     var view: HostViewing? { get set }
     var delegate: HostPresenterDelegate? { get set }
     
     func viewDidLoad()
+    func showGame()
 }
 
 protocol HostViewing: AnyObject {
     var presenter: HostPresenting! { get set }
+    
 }
 
 class HostViewController: UIViewController {
@@ -33,10 +33,13 @@ class HostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        presenter.viewDidLoad()
     }
     
-
+    @IBAction func showGame(_ sender: Any) {
+        presenter.showGame()
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -58,8 +61,19 @@ class HostPresenter: HostPresenting {
     var delegate: HostPresenterDelegate?
     
     weak var view: HostViewing?
+    
+    private let connectionManager: ConnectionManager
+    
+    init(connectionManager: ConnectionManager) {
+        self.connectionManager = connectionManager
+    }
 
     func viewDidLoad() {
         
+    }
+    
+    func showGame() {
+        let event = Event.showGame
+        connectionManager.send(event)
     }
 }

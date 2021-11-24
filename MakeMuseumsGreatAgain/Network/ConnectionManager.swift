@@ -11,6 +11,7 @@ import MultipeerConnectivity
 protocol ConnectionManagerDelegate {
     func didJoinSession(in: ConnectionManager)
     func didHostSession(in: ConnectionManager)
+    func didRecieveClient(event: Event, in: ConnectionManager)
 }
 
 class ConnectionManager: NSObject {
@@ -77,6 +78,7 @@ extension ConnectionManager: MCSessionDelegate {
         guard let event = try? JSONDecoder().decode(Event.self, from: data) else { return }
         DispatchQueue.main.async {
             self.events.append(event)
+            self.delegate?.didRecieveClient(event: event, in: self)
         }
     }
     

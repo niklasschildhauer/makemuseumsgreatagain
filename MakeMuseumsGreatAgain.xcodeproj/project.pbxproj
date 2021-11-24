@@ -21,6 +21,7 @@
 		8583D7912747EF90000607CC /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D7902747EF90000607CC /* HostViewController.swift */; };
 		8583D7932747EFB9000607CC /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D7922747EFB9000607CC /* ClientViewController.swift */; };
 		8583D7952747F375000607CC /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D7942747F375000607CC /* StoryboardInitializable.swift */; };
+		85919B34274E3CEF00192D8F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85919B33274E3CEF00192D8F /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8583D7902747EF90000607CC /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
 		8583D7922747EFB9000607CC /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
 		8583D7942747F375000607CC /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
+		85919B33274E3CEF00192D8F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		8583D78F2747EF6C000607CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				85919B32274E3CD900192D8F /* ClientViews */,
 				85027B072747E33C00E0D438 /* MainViewController.swift */,
 				8583D7902747EF90000607CC /* HostViewController.swift */,
 				8583D7922747EFB9000607CC /* ClientViewController.swift */,
@@ -129,6 +132,14 @@
 				8583D7942747F375000607CC /* StoryboardInitializable.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		85919B32274E3CD900192D8F /* ClientViews */ = {
+			isa = PBXGroup;
+			children = (
+				85919B33274E3CEF00192D8F /* GameViewController.swift */,
+			);
+			path = ClientViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 				85027B1C2747E37000E0D438 /* ConnectionManager.swift in Sources */,
 				85027B082747E33C00E0D438 /* MainViewController.swift in Sources */,
 				85027B042747E33C00E0D438 /* AppDelegate.swift in Sources */,
+				85919B34274E3CEF00192D8F /* GameViewController.swift in Sources */,
 				85027B0E2747E33C00E0D438 /* MakeMuseumsGreatAgain.xcdatamodeld in Sources */,
 				8583D7932747EFB9000607CC /* ClientViewController.swift in Sources */,
 				8583D7952747F375000607CC /* StoryboardInitializable.swift in Sources */,
@@ -369,6 +381,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,6 +410,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
