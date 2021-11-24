@@ -21,18 +21,18 @@ class AppCoordinator: Coordinator {
     }
     
     private let window: UIWindow
-    private let connectionManager: ConnectionManager
+    private var connectionManager: ConnectionManager = ConnectionManager()
+    private var clientCoordinator: ClientCoordinator = ClientCoordinator()
     
     init(window: UIWindow) {
         self.window = window
         
-        let manager = ConnectionManager()
-        self.connectionManager = manager
-        manager.delegate = self
+        connectionManager.delegate = self
+        clientCoordinator.delegate = self
         
         showMainViewController()
     }
-    
+        
     private func showMainViewController() {
         let mainView = MainViewController.makeFromStoryboard()
         let mainPresenter = MainPresenter(connectionManager: connectionManager)
@@ -45,7 +45,7 @@ class AppCoordinator: Coordinator {
     
     private func showHostViewController() {
         let hostView = HostViewController.makeFromStoryboard()
-        let hostPresenter = HostPresenter()
+        let hostPresenter = HostPresenter(connectionManager: connectionManager)
         
         hostView.presenter = hostPresenter
         hostPresenter.delegate = self
@@ -55,12 +55,8 @@ class AppCoordinator: Coordinator {
     }
     
     private func showClientCoordinator() {
-        let clientCoordinator = ClientCoordinator()
-        
-        clientCoordinator.delegate = self
-        
         DispatchQueue.main.async {
-            self.rootViewController.present(clientCoordinator.rootViewController, animated: true)
+            self.rootViewController.present(self.clientCoordinator.rootViewController, animated: true)
         }
     }
 }
@@ -78,6 +74,10 @@ extension AppCoordinator: MainPresenterDelegate {
 }
 
 extension AppCoordinator: ConnectionManagerDelegate {
+    func didRecieveClient(event: Event, in: ConnectionManager) {
+        clientCoordinator.handle(event: event)
+    }
+    
     func didJoinSession(in: ConnectionManager) {
         showClientCoordinator()
     }

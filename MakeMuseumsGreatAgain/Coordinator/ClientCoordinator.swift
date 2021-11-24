@@ -12,6 +12,12 @@ protocol ClientCoordinatorDelegate {
     
 }
 
+protocol ClientCoordinatorProtocol {
+    var delegate: ClientCoordinatorDelegate? { get set }
+    
+    func handle(event: Event)
+}
+
 class ClientCoordinator: Coordinator {
     var rootViewController: UIViewController = UIViewController()
     
@@ -29,6 +35,26 @@ class ClientCoordinator: Coordinator {
         clientPresenter.delegate = self
         
         return clientViewController
+    }
+    
+    private func showGameViewController() {
+        let gameView = GameViewController.makeFromStoryboard()
+        
+        DispatchQueue.main.async {
+            self.rootViewController.present(gameView, animated: true)
+        }
+    }
+}
+
+extension ClientCoordinator: ClientCoordinatorProtocol {
+    
+    public func handle(event: Event) {
+        switch event {
+        case .showGame:
+            showGameViewController()
+        case .read(let message):
+            print("read Message \(message)")
+        }
     }
     
 }

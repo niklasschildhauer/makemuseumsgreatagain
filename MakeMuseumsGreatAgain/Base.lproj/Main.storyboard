@@ -65,12 +65,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-BR-AgQ">
+                                <rect key="frame" x="156.5" y="331" width="101" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show Game"/>
+                                <connections>
+                                    <action selector="showGame:" destination="R14-Pv-CY6" eventType="touchUpInside" id="Klf-ug-4fS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5JZ-dB-d5b"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="AC9-iV-gQd" firstAttribute="top" secondItem="B7r-BR-AgQ" secondAttribute="bottom" constant="75.5" id="2rd-Kx-KCG"/>
                             <constraint firstItem="AC9-iV-gQd" firstAttribute="centerY" secondItem="JKl-Pk-Pmk" secondAttribute="centerY" id="3Ei-eP-Dxc"/>
                             <constraint firstItem="AC9-iV-gQd" firstAttribute="centerX" secondItem="JKl-Pk-Pmk" secondAttribute="centerX" id="I8c-Zj-bCA"/>
+                            <constraint firstItem="B7r-BR-AgQ" firstAttribute="centerX" secondItem="JKl-Pk-Pmk" secondAttribute="centerX" id="eag-SA-azN"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -104,6 +114,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2X-zV-Te3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1603" y="125"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="LMb-Ty-hJz">
+            <objects>
+                <viewController storyboardIdentifier="GameViewController" id="aNP-xr-STb" customClass="GameViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0sJ-b7-A3x">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Das könnte das Spiel sein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-TW-Fhm">
+                                <rect key="frame" x="109.5" y="437.5" width="195" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AIb-3E-zKP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SAU-TW-Fhm" firstAttribute="centerX" secondItem="0sJ-b7-A3x" secondAttribute="centerX" id="I7w-oh-L2N"/>
+                            <constraint firstItem="SAU-TW-Fhm" firstAttribute="centerY" secondItem="0sJ-b7-A3x" secondAttribute="centerY" id="gxN-lm-T5A"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MZ8-Vh-adz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2355" y="130"/>
         </scene>
     </scenes>
     <resources>

@@ -23,5 +23,10 @@
 	</dict>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>Ich brauche Zugriff!</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_con-manager._tcp</string>
+		<string>_con-manager._udp</string>
+	</array>
 </dict>
 </plist>
