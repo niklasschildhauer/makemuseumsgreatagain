@@ -44,6 +44,14 @@ class ClientCoordinator: Coordinator {
             self.rootViewController.present(gameView, animated: true)
         }
     }
+    
+    private func showARViewController() {
+        let arView = ARViewController.makeFromStoryboard()
+        
+        DispatchQueue.main.async {
+            self.rootViewController.present(arView, animated: true)
+        }
+    }
 }
 
 extension ClientCoordinator: ClientCoordinatorProtocol {
@@ -54,6 +62,8 @@ extension ClientCoordinator: ClientCoordinatorProtocol {
             showGameViewController()
         case .read(let message):
             print("read Message \(message)")
+        case .showARCamera:
+            showARViewController()
         }
     }
     

@@ -28,5 +28,9 @@
 		<string>_con-manager._tcp</string>
 		<string>_con-manager._udp</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Ich brauche Zugriff!</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Ich brauche Zugriff!</string>
 </dict>
 </plist>
