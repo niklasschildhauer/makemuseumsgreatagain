@@ -16,6 +16,7 @@
 		85027B132747E33E00E0D438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85027B112747E33E00E0D438 /* LaunchScreen.storyboard */; };
 		85027B1C2747E37000E0D438 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85027B1B2747E37000E0D438 /* ConnectionManager.swift */; };
 		85027B1F2747E44100E0D438 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85027B1E2747E44100E0D438 /* EventModel.swift */; };
+		8523B09F274FBABC00971719 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8523B09E274FBABC00971719 /* AvatarViewController.swift */; };
 		8547CA2B274D6CF0006BC0C0 /* ClientCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8547CA2A274D6CF0006BC0C0 /* ClientCoordinator.swift */; };
 		8583D78E2747EE2E000607CC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D78D2747EE2E000607CC /* AppCoordinator.swift */; };
 		8583D7912747EF90000607CC /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D7902747EF90000607CC /* HostViewController.swift */; };
@@ -37,6 +38,7 @@
 		85027B142747E33E00E0D438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85027B1B2747E37000E0D438 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		85027B1E2747E44100E0D438 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		8523B09E274FBABC00971719 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
 		8547CA2A274D6CF0006BC0C0 /* ClientCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientCoordinator.swift; sourceTree = "<group>"; };
 		8583D78D2747EE2E000607CC /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8583D7902747EF90000607CC /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				8583D7922747EFB9000607CC /* ClientViewController.swift */,
 				85919B33274E3CEF00192D8F /* GameViewController.swift */,
 				85AB3C90274E9D890020357D /* ARViewController.swift */,
+				8523B09E274FBABC00971719 /* AvatarViewController.swift */,
 			);
 			path = ClientViews;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				85027B1F2747E44100E0D438 /* EventModel.swift in Sources */,
 				85AB3C91274E9D890020357D /* ARViewController.swift in Sources */,
 				85027B062747E33C00E0D438 /* SceneDelegate.swift in Sources */,
+				8523B09F274FBABC00971719 /* AvatarViewController.swift in Sources */,
 				8547CA2B274D6CF0006BC0C0 /* ClientCoordinator.swift in Sources */,
 				8583D78E2747EE2E000607CC /* AppCoordinator.swift in Sources */,
 			);
