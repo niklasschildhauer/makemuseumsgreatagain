@@ -15,6 +15,7 @@ protocol HostPresenting {
     
     func viewDidLoad()
     func showGame()
+    func showARCamera()
 }
 
 protocol HostViewing: AnyObject {
@@ -40,16 +41,10 @@ class HostViewController: UIViewController {
         presenter.showGame()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+     @IBAction func showARCamera(_ sender: Any) {
+         presenter.showARCamera()
+     }
 }
 
 extension HostViewController: StoryboardInitializable { }
@@ -58,6 +53,8 @@ extension HostViewController: HostViewing {
 }
 
 class HostPresenter: HostPresenting {
+  
+    
     var delegate: HostPresenterDelegate?
     
     weak var view: HostViewing?
@@ -74,6 +71,11 @@ class HostPresenter: HostPresenting {
     
     func showGame() {
         let event = Event.showGame
+        connectionManager.send(event)
+    }
+    
+    func showARCamera() {
+        let event = Event.showARCamera
         connectionManager.send(event)
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 
 public enum Event: Codable {
     case showGame
+    case showARCamera
     case read(message: String)
 }
 

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -73,6 +74,16 @@
                                     <action selector="showGame:" destination="R14-Pv-CY6" eventType="touchUpInside" id="Klf-ug-4fS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6w3-7v-Tib">
+                                <rect key="frame" x="166" y="378" width="82" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show AR"/>
+                                <connections>
+                                    <action selector="showARCamera:" destination="R14-Pv-CY6" eventType="touchUpInside" id="LcY-Nr-PAf"/>
+                                    <action selector="showGame:" destination="R14-Pv-CY6" eventType="touchUpInside" id="VPW-Ry-tZP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5JZ-dB-d5b"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -141,6 +152,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MZ8-Vh-adz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2355" y="130"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DzQ-Oh-ucR">
+            <objects>
+                <viewController storyboardIdentifier="ARViewController" id="0yR-zn-gx5" customClass="ARViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YP7-HW-Olx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIy-GG-WAb">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </arscnView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5mp-ie-cve"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="iIy-GG-WAb" secondAttribute="bottom" id="9ey-jY-xxr"/>
+                            <constraint firstItem="iIy-GG-WAb" firstAttribute="top" secondItem="YP7-HW-Olx" secondAttribute="top" id="DTR-ST-BKw"/>
+                            <constraint firstItem="5mp-ie-cve" firstAttribute="trailing" secondItem="iIy-GG-WAb" secondAttribute="trailing" id="zhY-ht-fje"/>
+                            <constraint firstItem="iIy-GG-WAb" firstAttribute="leading" secondItem="5mp-ie-cve" secondAttribute="leading" id="zv0-RT-BRe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scene" destination="iIy-GG-WAb" id="qgM-3y-Wd2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nKs-R6-ixI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3303" y="125"/>
         </scene>
     </scenes>
     <resources>

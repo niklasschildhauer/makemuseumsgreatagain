@@ -7,7 +7,31 @@
 
 import UIKit
 
+protocol GameViewing: AnyObject {
+    var presenter: GamePresenting! { get set }
+}
+
+protocol GamePresenting {
+    var view: GameViewing? { get set }
+    
+    func viewDidLoad()
+}
+
+class GamePresenter: GamePresenting {
+    var view: GameViewing?
+    
+    func viewDidLoad() {
+        
+    }
+}
+
 class GameViewController: UIViewController {
+    
+    var presenter: GamePresenting! {
+        didSet {
+            presenter.view = self
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,3 +42,7 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: StoryboardInitializable { }
+
+extension GameViewController: GameViewing {
+    
+}
