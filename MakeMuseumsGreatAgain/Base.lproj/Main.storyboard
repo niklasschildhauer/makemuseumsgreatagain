@@ -60,38 +60,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du bist ein Host" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AC9-iV-gQd">
-                                <rect key="frame" x="146.5" y="437.5" width="121" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-BR-AgQ">
-                                <rect key="frame" x="156.5" y="331" width="101" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show Game"/>
-                                <connections>
-                                    <action selector="showGame:" destination="R14-Pv-CY6" eventType="touchUpInside" id="Klf-ug-4fS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6w3-7v-Tib">
-                                <rect key="frame" x="166" y="378" width="82" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show AR"/>
-                                <connections>
-                                    <action selector="showARCamera:" destination="R14-Pv-CY6" eventType="touchUpInside" id="LcY-Nr-PAf"/>
-                                    <action selector="showGame:" destination="R14-Pv-CY6" eventType="touchUpInside" id="VPW-Ry-tZP"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="4BY-6J-kMm">
+                                <rect key="frame" x="0.0" y="355.5" width="414" height="185"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnv-pf-gfk">
+                                        <rect key="frame" x="155" y="0.0" width="104" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Show Avatar"/>
+                                        <connections>
+                                            <action selector="showAvatar:" destination="R14-Pv-CY6" eventType="touchUpInside" id="nLh-CC-P5t"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7r-BR-AgQ">
+                                        <rect key="frame" x="156.5" y="53" width="101" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show Game"/>
+                                        <connections>
+                                            <action selector="showGame:" destination="R14-Pv-CY6" eventType="touchUpInside" id="Klf-ug-4fS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6w3-7v-Tib">
+                                        <rect key="frame" x="166.5" y="106" width="81.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show AR"/>
+                                        <connections>
+                                            <action selector="showARCamera:" destination="R14-Pv-CY6" eventType="touchUpInside" id="JUR-cJ-emE"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du bist ein Host" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AC9-iV-gQd">
+                                        <rect key="frame" x="146.5" y="164.5" width="121" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5JZ-dB-d5b"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="AC9-iV-gQd" firstAttribute="top" secondItem="B7r-BR-AgQ" secondAttribute="bottom" constant="75.5" id="2rd-Kx-KCG"/>
-                            <constraint firstItem="AC9-iV-gQd" firstAttribute="centerY" secondItem="JKl-Pk-Pmk" secondAttribute="centerY" id="3Ei-eP-Dxc"/>
-                            <constraint firstItem="AC9-iV-gQd" firstAttribute="centerX" secondItem="JKl-Pk-Pmk" secondAttribute="centerX" id="I8c-Zj-bCA"/>
-                            <constraint firstItem="B7r-BR-AgQ" firstAttribute="centerX" secondItem="JKl-Pk-Pmk" secondAttribute="centerX" id="eag-SA-azN"/>
+                            <constraint firstItem="4BY-6J-kMm" firstAttribute="centerY" secondItem="JKl-Pk-Pmk" secondAttribute="centerY" id="29M-HI-xqk"/>
+                            <constraint firstItem="5JZ-dB-d5b" firstAttribute="trailing" secondItem="4BY-6J-kMm" secondAttribute="trailing" id="Bqk-GF-efr"/>
+                            <constraint firstItem="4BY-6J-kMm" firstAttribute="leading" secondItem="5JZ-dB-d5b" secondAttribute="leading" id="U7a-AW-ZMF"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -181,6 +191,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nKs-R6-ixI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3303" y="125"/>
+        </scene>
+        <!--Avatar View Controller-->
+        <scene sceneID="EaP-tR-Ybt">
+            <objects>
+                <viewController storyboardIdentifier="AvatarViewController" id="knN-lk-hl8" customClass="AvatarViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wXK-Xs-ql3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hier kommt mal ein Avatar hin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxy-cP-zJk">
+                                <rect key="frame" x="93.5" y="437.5" width="227" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IiH-ak-MXR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kxy-cP-zJk" firstAttribute="centerX" secondItem="wXK-Xs-ql3" secondAttribute="centerX" id="EsX-rK-43y"/>
+                            <constraint firstItem="kxy-cP-zJk" firstAttribute="centerY" secondItem="wXK-Xs-ql3" secondAttribute="centerY" id="Fk7-MA-lSv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IVZ-em-xvG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4209" y="125"/>
         </scene>
     </scenes>
     <resources>

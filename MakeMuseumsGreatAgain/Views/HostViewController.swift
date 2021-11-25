@@ -16,6 +16,7 @@ protocol HostPresenting {
     func viewDidLoad()
     func showGame()
     func showARCamera()
+    func showAvatar()
 }
 
 protocol HostViewing: AnyObject {
@@ -42,9 +43,13 @@ class HostViewController: UIViewController {
     }
     
     
-     @IBAction func showARCamera(_ sender: Any) {
-         presenter.showARCamera()
-     }
+    @IBAction func showARCamera(_ sender: Any) {
+        presenter.showARCamera()
+    }
+    
+    @IBAction func showAvatar(_ sender: Any) {
+        presenter.showAvatar()
+    }
 }
 
 extension HostViewController: StoryboardInitializable { }
@@ -76,6 +81,11 @@ class HostPresenter: HostPresenting {
     
     func showARCamera() {
         let event = Event.showARCamera
+        connectionManager.send(event)
+    }
+    
+    func showAvatar() {
+        let event = Event.showAvatar
         connectionManager.send(event)
     }
 }

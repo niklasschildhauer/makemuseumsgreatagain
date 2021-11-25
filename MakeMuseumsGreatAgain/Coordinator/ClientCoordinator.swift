@@ -59,6 +59,14 @@ class ClientCoordinator: Coordinator {
             self.navigationController.setViewControllers([arView], animated: false)
         }
     }
+    
+    private func showAvatarViewController() {
+        let avatarView = AvatarViewController.makeFromStoryboard()
+        
+        DispatchQueue.main.async {
+            self.navigationController.setViewControllers([avatarView], animated: false)
+        }
+    }
 }
 
 extension ClientCoordinator: ClientCoordinatorProtocol {
@@ -71,6 +79,8 @@ extension ClientCoordinator: ClientCoordinatorProtocol {
             print("read Message \(message)")
         case .showARCamera:
             showARViewController()
+        case .showAvatar:
+            showAvatarViewController()
         }
     }
     
