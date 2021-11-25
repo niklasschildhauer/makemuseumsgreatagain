@@ -19,12 +19,19 @@ protocol ClientCoordinatorProtocol {
 }
 
 class ClientCoordinator: Coordinator {
-    var rootViewController: UIViewController = UIViewController()
+    var rootViewController: UIViewController {
+        get {
+            navigationController
+        }
+    }
+    
+    private var navigationController = UINavigationController()
     
     var delegate: ClientCoordinatorDelegate?
     
     init() {
-        rootViewController = createClientViewController()
+        let clientView = createClientViewController()
+        navigationController.setViewControllers([clientView], animated: false)
     }
     
     private func createClientViewController() -> UIViewController {
@@ -41,7 +48,7 @@ class ClientCoordinator: Coordinator {
         let gameView = GameViewController.makeFromStoryboard()
         
         DispatchQueue.main.async {
-            self.rootViewController.present(gameView, animated: true)
+            self.navigationController.setViewControllers([gameView], animated: false)
         }
     }
     
@@ -49,7 +56,7 @@ class ClientCoordinator: Coordinator {
         let arView = ARViewController.makeFromStoryboard()
         
         DispatchQueue.main.async {
-            self.rootViewController.present(arView, animated: true)
+            self.navigationController.setViewControllers([arView], animated: false)
         }
     }
 }
