@@ -31,6 +31,9 @@ class AppCoordinator: Coordinator {
         clientCoordinator.delegate = self
         
         showMainViewController()
+        
+        //showClientCoordinator()
+        //clientCoordinator.handle(event: .showARCamera)
     }
         
     private func showMainViewController() {
@@ -54,8 +57,9 @@ class AppCoordinator: Coordinator {
         }
     }
     
-    private func showClientCoordinator() {
+    private func showClientCoordinator() {        
         DispatchQueue.main.async {
+            
             self.rootViewController.present(self.clientCoordinator.rootViewController, animated: true)
         }
     }
