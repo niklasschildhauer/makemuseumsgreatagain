@@ -21,66 +21,56 @@ protocol ClientCoordinatorProtocol {
 class ClientCoordinator: Coordinator {
     var rootViewController: UIViewController {
         get {
-            navigationController
+            clientView
         }
     }
     
-    private var navigationController = UINavigationController()
+    private var clientView: ClientViewController
     
     var delegate: ClientCoordinatorDelegate?
     
     init() {
-        let clientView = createClientViewController()
-        navigationController.setViewControllers([clientView], animated: false)
-    }
-    
-    private func createClientViewController() -> UIViewController {
         let clientViewController = ClientViewController.makeFromStoryboard()
+        clientView = clientViewController
         let clientPresenter = ClientPresenter()
+        
+        clientView.modalPresentationStyle = .overFullScreen
         
         clientViewController.presenter = clientPresenter
         clientPresenter.delegate = self
-        
-        return clientViewController
     }
     
     private func showGameViewController() {
         let gameView = GameViewController.makeFromStoryboard()
-        
-        DispatchQueue.main.async {
-            self.navigationController.setViewControllers([gameView], animated: false)
-        }
+        self.clientView.show(viewController: gameView)
+        self.clientView.shrinkAvatar()
     }
     
     private func showARViewController() {
-        let arView = ARViewController.makeFromStoryboard()
-        
-        DispatchQueue.main.async {
-            self.navigationController.setViewControllers([arView], animated: false)
-        }
+        let arView = ARRealityKitViewController.makeFromStoryboard()
+        self.clientView.show(viewController: arView)
+        self.clientView.shrinkAvatar()
     }
     
     private func showAvatarViewController() {
-        let avatarView = AvatarViewController.makeFromStoryboard()
-        
-        DispatchQueue.main.async {
-            self.navigationController.setViewControllers([avatarView], animated: false)
-        }
+        self.clientView.expandAvatar()
     }
 }
 
 extension ClientCoordinator: ClientCoordinatorProtocol {
     
     public func handle(event: Event) {
-        switch event {
-        case .showGame:
-            showGameViewController()
-        case .read(let message):
-            print("read Message \(message)")
-        case .showARCamera:
-            showARViewController()
-        case .showAvatar:
-            showAvatarViewController()
+        DispatchQueue.main.async {
+            switch event {
+            case .showGame:
+                self.showGameViewController()
+            case .read(let message):
+                print("read Message \(message)")
+            case .showARCamera:
+                self.showARViewController()
+            case .showAvatar:
+                self.showAvatarViewController()
+            }
         }
     }
     
