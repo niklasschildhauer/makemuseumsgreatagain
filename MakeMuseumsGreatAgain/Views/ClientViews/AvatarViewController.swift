@@ -7,11 +7,15 @@
 
 import UIKit
 import AVFoundation
+import WebKit
+import ProgressWebViewController
+import SafariServices
 
 protocol AvatarViewing: AnyObject {
     var presenter: AvatarPresenting? { get set }
     
-    func test()
+    func display(url: URL)
+    func reload()
 }
 
 protocol AvatarPresenting {
@@ -21,11 +25,15 @@ protocol AvatarPresenting {
 
 class AvatarPresenter: AvatarPresenting {
     weak var view: AvatarViewing?
+    var player: AVPlayer?
     
     func viewDidLoad() {
-        view?.test()
+        view?.display(url: createURLRequest())
     }
-
+    
+    private func createURLRequest() -> URL {
+        return URL(string:"https://obs.ninja/?view=35aGL4n")!
+    }
 }
 
 class AvatarViewController: UIViewController {
@@ -35,44 +43,21 @@ class AvatarViewController: UIViewController {
             presenter?.view = self
         }
     }
-    var player: AVPlayer?
     @IBOutlet weak var videoContainer: UIView!
-    
+    let webViewController = ProgressWebViewController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .blue
-        
-        initializeVideoPlayerWithVideo()
-        
-        player?.play()
-        
-        presenter?.viewDidLoad()
+                
+        webViewController.delegate = self
+        add(childViewController: webViewController, insets: .zero)
     }
-    
-    func initializeVideoPlayerWithVideo() {
-        
-        // get the path string for the video from assets
-        let videoString:String? = Bundle.main.path(forResource: "testVideo", ofType: "mp4")
-        guard let unwrappedVideoPath = videoString else {return}
-        
-        // convert the path string to a url
-        let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
-        
-        // initialize the video player with the url
-        self.player = AVPlayer(url: videoUrl)
-        
-        // create a video layer for the player
-        let layer: AVPlayerLayer = AVPlayerLayer(player: player)
-        
-        // make the layer the same size as the container view
-        layer.frame = videoContainer.bounds
-        
-        // make the video fill the layer as much as possible while keeping its aspect size
-        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        
-        // add the layer to the container view
-        videoContainer.layer.addSublayer(layer)
+}
+
+extension AvatarViewController: ProgressWebViewControllerDelegate {
+    func progressWebViewController(_ controller: ProgressWebViewController, didFinish url: URL) {
+        let thisInner = "this.document.getElementById('bigPlayButton').click(); this.document.body.style.backgroundColor = \"#000000\"";
+        controller.evaluateJavaScript(thisInner, completionHandler: nil)
     }
     
 }
@@ -80,8 +65,14 @@ class AvatarViewController: UIViewController {
 extension AvatarViewController: StoryboardInitializable { }
 
 extension AvatarViewController: AvatarViewing {
-    func test() {
-        view.backgroundColor = .yellow
+    func reload() {
+        let thisInner = "this.document.getElementsByClassName('tile')[0].pause(); this.document.getElementsByClassName('tile')[0].load(); this.document.getElementsByClassName('tile')[0].play();";
+        webViewController.evaluateJavaScript(thisInner, completionHandler: nil)
+        //webViewController.reload()
     }
-
+    
+    func display(url: URL) {
+        webViewController.load(url)
+    }
 }
+

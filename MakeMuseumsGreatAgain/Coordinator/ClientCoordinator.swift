@@ -41,19 +41,25 @@ class ClientCoordinator: Coordinator {
     }
     
     private func showGameViewController() {
+        self.clientView.hideViewController()
+
         let gameView = GameViewController.makeFromStoryboard()
         self.clientView.show(viewController: gameView)
-        self.clientView.shrinkAvatar()
     }
     
     private func showARViewController() {
+        self.clientView.hideViewController()
+
         let arView = ARRealityKitViewController.makeFromStoryboard()
         self.clientView.show(viewController: arView)
-        self.clientView.shrinkAvatar()
     }
     
     private func showAvatarViewController() {
-        self.clientView.expandAvatar()
+        self.clientView.hideViewController()
+    }
+    
+    private func reloadViews()  {
+        self.clientView.reload()
     }
 }
 
@@ -70,6 +76,8 @@ extension ClientCoordinator: ClientCoordinatorProtocol {
                 self.showARViewController()
             case .showAvatar:
                 self.showAvatarViewController()
+            case .reloadAvatar:
+                self.reloadViews()
             }
         }
     }

@@ -22,8 +22,8 @@ protocol ClientViewing: AnyObject {
     var presenter: ClientPresenting! { get set }
     
     func show(viewController: UIViewController)
-    func expandAvatar()
-    func shrinkAvatar()
+    func hideViewController()
+    func reload()
 }
 
 class ClientViewController: UIViewController {
@@ -35,35 +35,19 @@ class ClientViewController: UIViewController {
     }
     
     @IBOutlet var avatarContainerView: UIView!
-    private var avatarViewController: AvatarViewing?
-    private var navigationViewController: UINavigationController?
-    
-    private var isAvatarExpanded = false
-    
+    private var avatarViewController: AvatarViewing?    
     @IBOutlet var avatarWrapperView: UIView!
-    @IBOutlet var widthConstraint: NSLayoutConstraint!
-    @IBOutlet var heightConstraint: NSLayoutConstraint!
-    @IBOutlet var topConstraint: NSLayoutConstraint!
-    @IBOutlet var leadingConstraint: NSLayoutConstraint!
-    @IBOutlet var bottomConstraint: NSLayoutConstraint!
-    @IBOutlet var trailingConstraint: NSLayoutConstraint!
     
+    private var currentPresentingViewController: UIViewController?
+     
     override func viewDidLoad() {
         super.viewDidLoad()
         let avatarPresenter = AvatarPresenter()
         avatarViewController?.presenter = avatarPresenter
         avatarPresenter.viewDidLoad()
-        
-        navigationViewController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Navigation Controller" {
-            if let navigationController = segue.destination as? UINavigationController {
-                self.navigationViewController = navigationController
-            }
-        }
-        
         if segue.identifier == "Avatar View Controller" {
             if let avatarViewController = segue.destination as? AvatarViewController {
                 self.avatarViewController = avatarViewController
@@ -75,50 +59,34 @@ class ClientViewController: UIViewController {
 extension ClientViewController: StoryboardInitializable { }
 
 extension ClientViewController: ClientViewing {
-    func expandAvatar() {
-        if !isAvatarExpanded {
-                self.heightConstraint.isActive = false
-                self.widthConstraint.isActive = false
-                self.leadingConstraint.isActive = true
-                self.topConstraint.isActive = true
-                
-                self.trailingConstraint.constant = 0
-                self.bottomConstraint.constant = 0
-            
-            UIView.animate(withDuration: 0.5) {
-                self.avatarWrapperView.layoutIfNeeded()
-            } completion: { _ in
-                // Make sure, that the AR Camera is closed
-                self.show(viewController: UIViewController())
-            }
-
-            self.isAvatarExpanded = true
-
-        }
+    func reload() {
+        avatarViewController?.reload()
     }
     
-    func shrinkAvatar() {
-        if isAvatarExpanded {
-            self.leadingConstraint.isActive = false
-            self.topConstraint.isActive = false
-                self.heightConstraint.isActive = true
-                self.widthConstraint.isActive = true
-                
-                self.trailingConstraint.constant = 20
-                self.bottomConstraint.constant = 20
-            
-            UIView.animate(withDuration: 0.5) {
-                self.avatarWrapperView.layoutIfNeeded()
+    func hideViewController() {
+        if let vc = currentPresentingViewController {
+            if vc is ARRealityKitViewController {
+                avatarViewController?.reload()
             }
-                
-            self.isAvatarExpanded = false
-
+            vc.dismiss(animated: true) {
+                self.currentPresentingViewController = nil
+            }
         }
     }
     
     func show(viewController: UIViewController) {
-        UIView.performWithoutAnimation {
-            self.navigationViewController?.setViewControllers([viewController], animated: false)
+        viewController.isModalInPresentation = true
+        
+        if let vc = currentPresentingViewController {
+            vc.dismiss(animated: true, completion: {
+                self.present(viewController, animated: true) {
+                    self.currentPresentingViewController = viewController
+                }
+            })
+        } else {
+            self.present(viewController, animated: true) {
+                self.currentPresentingViewController = viewController
+            }
         }
     }
 }
