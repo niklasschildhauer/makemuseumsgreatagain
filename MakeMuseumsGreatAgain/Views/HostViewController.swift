@@ -17,6 +17,7 @@ protocol HostPresenting {
     func showGame()
     func showARCamera()
     func showAvatar()
+    func reloadAvatar()
 }
 
 protocol HostViewing: AnyObject {
@@ -36,6 +37,10 @@ class HostViewController: UIViewController {
         super.viewDidLoad()
         
         presenter.viewDidLoad()
+    }
+    
+    @IBAction func reloadAvatar(_ sender: Any) {
+        presenter.reloadAvatar()
     }
     
     @IBAction func showGame(_ sender: Any) {
@@ -86,6 +91,11 @@ class HostPresenter: HostPresenting {
     
     func showAvatar() {
         let event = Event.showAvatar
+        connectionManager.send(event)
+    }
+    
+    func reloadAvatar() {
+        let event = Event.reloadAvatar
         connectionManager.send(event)
     }
 }

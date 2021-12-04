@@ -11,6 +11,7 @@ public enum Event: Codable {
     case showGame
     case showARCamera
     case showAvatar
+    case reloadAvatar
     case read(message: String)
 }
 
