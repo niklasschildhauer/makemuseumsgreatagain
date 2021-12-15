@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_con-manager._tcp</string>
+		<string>_con-manager._udp</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -21,16 +26,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>Ich brauche Zugriff!</string>
-	<key>NSBonjourServices</key>
-	<array>
-		<string>_con-manager._tcp</string>
-		<string>_con-manager._udp</string>
-	</array>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Ich brauche Zugriff!</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Ich brauche Zugriff!</string>
 </dict>
 </plist>

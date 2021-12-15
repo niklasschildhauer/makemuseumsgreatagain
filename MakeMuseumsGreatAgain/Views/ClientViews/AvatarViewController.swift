@@ -32,7 +32,8 @@ class AvatarPresenter: AvatarPresenting {
     }
     
     private func createURLRequest() -> URL {
-        return URL(string:"https://obs.ninja/?view=35aGL4n")!
+        return URL(string: "https://facetime.apple.com/join#v=1&p=RrSPfl2DEeyH+gJCBYOMLA&k=XF9T4oqHCEEe41Qs0UKV1RnX-NYAC_uuOzhAzUu1X1E")!
+        //return URL(string:"https://obs.ninja/?view=35aGL4n")!
     }
 }
 
@@ -56,8 +57,8 @@ class AvatarViewController: UIViewController {
 
 extension AvatarViewController: ProgressWebViewControllerDelegate {
     func progressWebViewController(_ controller: ProgressWebViewController, didFinish url: URL) {
-        let thisInner = "this.document.getElementById('bigPlayButton').click(); this.document.body.style.backgroundColor = \"#000000\"";
-        controller.evaluateJavaScript(thisInner, completionHandler: nil)
+        //let thisInner = "this.document.getElementById('bigPlayButton').click(); this.document.body.style.backgroundColor = \"#000000\"";
+        //controller.evaluateJavaScript(thisInner, completionHandler: nil)
     }
     
 }
@@ -66,8 +67,8 @@ extension AvatarViewController: StoryboardInitializable { }
 
 extension AvatarViewController: AvatarViewing {
     func reload() {
-        let thisInner = "this.document.getElementsByClassName('tile')[0].pause(); this.document.getElementsByClassName('tile')[0].load(); this.document.getElementsByClassName('tile')[0].play();";
-        webViewController.evaluateJavaScript(thisInner, completionHandler: nil)
+        //let thisInner = "this.document.getElementsByClassName('tile')[0].pause(); this.document.getElementsByClassName('tile')[0].load(); this.document.getElementsByClassName('tile')[0].play();";
+        //webViewController.evaluateJavaScript(thisInner, completionHandler: nil)
         //webViewController.reload()
     }
     

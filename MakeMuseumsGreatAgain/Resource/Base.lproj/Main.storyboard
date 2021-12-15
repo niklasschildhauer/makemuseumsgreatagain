@@ -126,10 +126,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkS-k9-8mm">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <rect key="frame" x="0.0" y="20" width="834" height="1092"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgl-9j-xWG">
-                                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="834" height="1092"/>
                                         <connections>
                                             <segue destination="WYg-wh-HsG" kind="embed" identifier="Avatar View Controller" id="p0Q-HB-OM9"/>
                                         </connections>
@@ -137,22 +137,20 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Qgl-9j-xWG" secondAttribute="bottom" id="CcH-ec-6ab"/>
-                                    <constraint firstItem="Qgl-9j-xWG" firstAttribute="top" secondItem="pkS-k9-8mm" secondAttribute="top" id="OuW-5X-tcw"/>
+                                    <constraint firstItem="Qgl-9j-xWG" firstAttribute="top" secondItem="pkS-k9-8mm" secondAttribute="top" id="SUC-51-uCf"/>
                                     <constraint firstItem="Qgl-9j-xWG" firstAttribute="leading" secondItem="pkS-k9-8mm" secondAttribute="leading" id="ZZo-4a-9LQ"/>
                                     <constraint firstAttribute="trailing" secondItem="Qgl-9j-xWG" secondAttribute="trailing" id="cMG-5E-CUZ"/>
-                                    <constraint firstItem="Qgl-9j-xWG" firstAttribute="top" secondItem="pkS-k9-8mm" secondAttribute="top" id="v35-Pw-VrA"/>
-                                    <constraint firstItem="Qgl-9j-xWG" firstAttribute="leading" secondItem="pkS-k9-8mm" secondAttribute="leading" id="zqN-u6-FjW"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qgl-9j-xWG" secondAttribute="bottom" id="rr5-aS-Od7"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OvS-mo-N64"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="pkS-k9-8mm" secondAttribute="bottom" id="49s-vg-CrA"/>
-                            <constraint firstItem="pkS-k9-8mm" firstAttribute="top" secondItem="45y-T1-A2z" secondAttribute="top" id="F4Y-TE-8O0"/>
+                            <constraint firstItem="OvS-mo-N64" firstAttribute="top" secondItem="pkS-k9-8mm" secondAttribute="top" id="E8l-9G-7Xi"/>
                             <constraint firstAttribute="trailing" secondItem="pkS-k9-8mm" secondAttribute="trailing" id="U1n-ee-8hR"/>
                             <constraint firstItem="pkS-k9-8mm" firstAttribute="leading" secondItem="45y-T1-A2z" secondAttribute="leading" id="UrT-pV-quR"/>
+                            <constraint firstItem="OvS-mo-N64" firstAttribute="bottom" secondItem="pkS-k9-8mm" secondAttribute="bottom" id="p4p-sJ-Q5K"/>
                         </constraints>
                     </view>
                     <connections>
@@ -264,11 +262,11 @@
             <objects>
                 <viewController storyboardIdentifier="AvatarViewController" id="WYg-wh-HsG" customClass="AvatarViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GZR-zv-mlz">
-                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1092"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0GE-UO-inl">
-                                <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
+                                <rect key="frame" x="0.0" y="0.0" width="834" height="1092"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>

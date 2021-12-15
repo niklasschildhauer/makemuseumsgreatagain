@@ -412,6 +412,10 @@
 				DEVELOPMENT_TEAM = YP55X74PC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MakeMuseumsGreatAgain/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Ich brauche Zugriff!";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Ich brauche Zugriff!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ich brauche Zugriff!";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Ich brauche Zufgriff!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -441,6 +445,10 @@
 				DEVELOPMENT_TEAM = YP55X74PC3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MakeMuseumsGreatAgain/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Ich brauche Zugriff!";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Ich brauche Zugriff!";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Ich brauche Zugriff!";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Ich brauche Zufgriff!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
