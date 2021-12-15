@@ -80,7 +80,13 @@ class HostPresenter: HostPresenting {
     }
     
     func showGame() {
-        let event = Event.showGame
+        let answer1 = Answer(text: "1980", isTrue: false)
+        let answer2 = Answer(text: "1900", isTrue: false)
+        let answer3 = Answer(text: "1908", isTrue: true)
+        let answer4 = Answer(text: "1850", isTrue: false)
+
+        let question = Question(text: "Wann wurde Mercedes Benz gegründet", answers: [answer1, answer2, answer3, answer4])
+        let event = Event.showGame(gameEvent: .question(question))
         connectionManager.send(event)
     }
     

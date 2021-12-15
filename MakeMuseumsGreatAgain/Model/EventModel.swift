@@ -8,7 +8,7 @@
 import Foundation
 
 public enum Event: Codable {
-    case showGame
+    case showGame(gameEvent: GameEvent)
     case showARCamera
     case showAvatar
     case reloadAvatar
@@ -21,3 +21,4 @@ extension Event {
       return try? encoder.encode(self)
     }
 }
+

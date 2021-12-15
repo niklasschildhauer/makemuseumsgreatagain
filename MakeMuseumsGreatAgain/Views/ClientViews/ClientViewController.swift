@@ -65,9 +65,6 @@ extension ClientViewController: ClientViewing {
     
     func hideViewController() {
         if let vc = currentPresentingViewController {
-            if vc is ARRealityKitViewController {
-                avatarViewController?.reload()
-            }
             vc.dismiss(animated: true) {
                 self.currentPresentingViewController = nil
             }
@@ -77,7 +74,7 @@ extension ClientViewController: ClientViewing {
     func show(viewController: UIViewController) {
         viewController.isModalInPresentation = true
         
-        if let vc = currentPresentingViewController {
+        if let vc = currentPresentingViewController, vc.self != viewController.self {
             vc.dismiss(animated: true, completion: {
                 self.present(viewController, animated: true) {
                     self.currentPresentingViewController = viewController
