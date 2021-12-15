@@ -59,7 +59,6 @@ class AppCoordinator: Coordinator {
     
     private func showClientCoordinator() {        
         DispatchQueue.main.async {
-            
             self.rootViewController.present(self.clientCoordinator.rootViewController, animated: true)
         }
     }

@@ -26,6 +26,7 @@ class ClientCoordinator: Coordinator {
     }
     
     private var clientView: ClientViewController
+    private var gameCoordinator: GameCoordinator = GameCoordinator()
     
     var delegate: ClientCoordinatorDelegate?
     
@@ -40,10 +41,12 @@ class ClientCoordinator: Coordinator {
         clientPresenter.delegate = self
     }
     
-    private func showGameViewController() {
+    private func showGameViewController(for gameEvent: GameEvent) {
         self.clientView.hideViewController()
 
-        let gameView = GameViewController.makeFromStoryboard()
+        let gameView = self.gameCoordinator.rootViewController
+        gameCoordinator.handle(gameEvent: gameEvent)
+        
         self.clientView.show(viewController: gameView)
     }
     
@@ -68,8 +71,8 @@ extension ClientCoordinator: ClientCoordinatorProtocol {
     public func handle(event: Event) {
         DispatchQueue.main.async {
             switch event {
-            case .showGame:
-                self.showGameViewController()
+            case .showGame(let gameEvent):
+                self.showGameViewController(for: gameEvent)
             case .read(let message):
                 print("read Message \(message)")
             case .showARCamera:
