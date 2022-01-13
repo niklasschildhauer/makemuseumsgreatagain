@@ -21,7 +21,7 @@ protocol ClientPresenting {
 protocol ClientViewing: AnyObject {
     var presenter: ClientPresenting! { get set }
     
-    func show(viewController: UIViewController)
+    func show(viewController: UIViewController, animated: Bool)
     func hideViewController()
     func reload()
 }
@@ -35,7 +35,7 @@ class ClientViewController: UIViewController {
     }
     
     @IBOutlet var avatarContainerView: UIView!
-    private var avatarViewController: AvatarViewing?    
+    private var avatarViewController: AvatarViewing?
     @IBOutlet var avatarWrapperView: UIView!
     
     private var currentPresentingViewController: UIViewController?
@@ -45,6 +45,7 @@ class ClientViewController: UIViewController {
         let avatarPresenter = AvatarPresenter()
         avatarViewController?.presenter = avatarPresenter
         avatarPresenter.viewDidLoad()
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,6 +60,7 @@ class ClientViewController: UIViewController {
 extension ClientViewController: StoryboardInitializable { }
 
 extension ClientViewController: ClientViewing {
+
     func reload() {
         avatarViewController?.reload()
     }
@@ -71,17 +73,17 @@ extension ClientViewController: ClientViewing {
         }
     }
     
-    func show(viewController: UIViewController) {
+    func show(viewController: UIViewController, animated: Bool = true) {
         viewController.isModalInPresentation = true
         
         if let vc = currentPresentingViewController, vc.self != viewController.self {
             vc.dismiss(animated: true, completion: {
-                self.present(viewController, animated: true) {
+                self.present(viewController, animated: animated) {
                     self.currentPresentingViewController = viewController
                 }
             })
         } else {
-            self.present(viewController, animated: true) {
+            self.present(viewController, animated: animated) {
                 self.currentPresentingViewController = viewController
             }
         }

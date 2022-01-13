@@ -66,6 +66,7 @@ class QuestionGameViewController: UIViewController {
     }
     @IBOutlet weak var text: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var textBackground: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -75,6 +76,7 @@ class QuestionGameViewController: UIViewController {
         collectionView.dataSource = self
         
         text.numberOfLines = 0
+        textBackground.blurBackground(behind: text)
         
         navigationController?.navigationBar.isHidden = true
         

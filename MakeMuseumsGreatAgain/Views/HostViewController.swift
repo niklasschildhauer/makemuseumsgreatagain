@@ -23,6 +23,7 @@ protocol HostPresenting {
     func showAvatar()
     func reload()
     func dismiss()
+    func add100Points()
 }
 
 protocol HostViewing: AnyObject {
@@ -55,6 +56,10 @@ class HostViewController: UIViewController {
         
     @IBAction func showARCamera(_ sender: Any) {
         presenter.showARCamera()
+    }
+    
+    @IBAction func add100Points(_ sender: Any) {
+        presenter.add100Points()
     }
     
     @IBAction func dismiss(_ sender: Any) {
@@ -171,6 +176,11 @@ class HostPresenter: HostPresenting {
     
     func clientsHaveChanged(clients: [MCPeerID]) {
         view?.display(peersText: "Aktuell sind \(clients.count) verbunden.")
+    }
+    
+    func add100Points() {
+        let event = Event.scroe(stars: 100)
+        connectionManager.send(event)
     }
 
     private let questions: [Question] = [

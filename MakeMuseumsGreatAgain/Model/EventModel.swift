@@ -13,6 +13,7 @@ public enum Event: Codable {
     case showAvatar
     case reload
     case dismiss
+    case scroe(stars: Int)
     case read(message: String)
 }
 
