@@ -50,6 +50,7 @@ class AppCoordinator: Coordinator {
         let hostPresenter = HostPresenter(connectionManager: connectionManager)
         hostView.presenter = hostPresenter
         hostPresenter.delegate = self
+        hostView.isModalInPresentation = true
         DispatchQueue.main.async {
             self.rootViewController.present(hostView, animated: true)
         }

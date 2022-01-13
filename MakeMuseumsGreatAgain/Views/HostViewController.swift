@@ -22,6 +22,7 @@ protocol HostPresenting {
     func showARCamera()
     func showAvatar()
     func reload()
+    func dismiss()
 }
 
 protocol HostViewing: AnyObject {
@@ -57,6 +58,7 @@ class HostViewController: UIViewController {
     }
     
     @IBAction func dismiss(_ sender: Any) {
+        presenter.dismiss()
         dismiss(animated: true)
     }
         
@@ -134,6 +136,10 @@ class HostPresenter: HostPresenting {
         
     }
     
+    func dismiss() {
+        connectionManager.send(.dismiss)
+    }
+    
     var numberOfQuestions: Int {
         questions.count
     }
@@ -168,41 +174,41 @@ class HostPresenter: HostPresenting {
     }
 
     private let questions: [Question] = [
-        Question(text: "Wie viele Exemplare siehst du hier?",
+        Question(text: "Wie viele Exemplare der Standuhr kannst du sehen?",
                  answers: [
                     Answer(text: "Nur das Eine", isTrue: false),
                     Answer(text: "Zwei", isTrue: false),
                     Answer(text: "Ganz Viele", isTrue: true),
                     Answer(text: "Keines", isTrue: false)
-                 ]),
+                 ], imageName: "01"),
         Question(text: "Wann war der Zusammenschluss von Carl Benz und Gottfried Daimler?",
                  answers: [
                     Answer(text: "1890", isTrue: false),
                     Answer(text: "1898", isTrue: false),
                     Answer(text: "1900", isTrue: false),
                     Answer(text: "Welcher Zusammenschluss?", isTrue: true)
-                 ]),
+                 ], imageName: "02"),
         Question(text: "Kannst du mir sagen wann die Unternehmen von Benz und Daimler gegründet wurden?",
                  answers: [
                     Answer(text: "Karl Benz: 1880 & Gottfried Daimler 1990", isTrue: false),
                     Answer(text: "Karl Benz: 1883 & Gottfried Daimler 1890", isTrue: false),
                     Answer(text: "Karl Benz: 1884 & Gottfried Daimler 1890", isTrue: true),
                     Answer(text: "Karl Benz: 1883 & Gottfried Daimler 1793", isTrue: false)
-                 ]),
+                 ], imageName: nil),
         Question(text: "Weißt du denn, woher der Markenname Mercedes kommt? Wieso heißt die Marke nicht Daimler-Benz? ",
                  answers: [
                     Answer(text: "Name der Tochter von Gottfried Daimler", isTrue: false),
                     Answer(text: "Mercedes ist schwäbisch für “mehr sehen”", isTrue: false),
                     Answer(text: "Großkunde von DMG fuhr unter dem Namen Rennen", isTrue: true),
                     Answer(text: "Weil es einfach ein schöner Name ist.", isTrue: false)
-                 ]),
+                 ], imageName: "04"),
         Question(text: "Erkennst du, was genau an dem Automobil so gefährlich war?",
                  answers: [
                     Answer(text: "Hohe Schwerpunkt", isTrue: false),
                     Answer(text: "Zu schwergängige Lenkung", isTrue: false),
                     Answer(text: "Radstand zu klein", isTrue: false),
                     Answer(text: "Eigentlich alles", isTrue: true)
-                 ]),
+                 ], imageName: "05"),
         
         
     ]

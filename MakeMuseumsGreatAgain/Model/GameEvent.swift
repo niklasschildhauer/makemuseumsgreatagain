@@ -21,6 +21,7 @@ extension GameEvent {
 public struct Question: Codable {
     let text: String
     let answers: [Answer]
+    let imageName: String?
 }
 
 extension Question {

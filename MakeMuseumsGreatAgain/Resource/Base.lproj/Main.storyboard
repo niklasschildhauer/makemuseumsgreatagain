@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azm-fS-zqi">
-                                <rect key="frame" x="186.66666666666666" y="306" width="55" height="31"/>
+                                <rect key="frame" x="356.5" y="282" width="55" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Host"/>
                                 <connections>
@@ -27,7 +27,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HME-sY-ar4">
-                                <rect key="frame" x="188.66666666666666" y="373" width="51" height="31"/>
+                                <rect key="frame" x="358.5" y="349" width="51" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Join"/>
                                 <connections>
@@ -51,24 +51,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-152" y="125"/>
+            <point key="canvasLocation" x="-126" y="124"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="ylo-6O-LeL">
             <objects>
                 <viewController storyboardIdentifier="HostViewController" id="R14-Pv-CY6" customClass="HostViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JKl-Pk-Pmk">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="4BY-6J-kMm">
-                                <rect key="frame" x="16" y="140" width="396" height="60"/>
+                                <rect key="frame" x="16" y="122" width="736" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="jrd-45-G5p">
-                                        <rect key="frame" x="0.0" y="14.666666666666657" width="206.33333333333334" height="31"/>
+                                        <rect key="frame" x="0.0" y="14.5" width="383.5" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnv-pf-gfk">
-                                                <rect key="frame" x="0.0" y="0.0" width="206.33333333333334" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="383.5" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="gray">
                                                     <attributedString key="attributedTitle">
@@ -82,7 +82,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6w3-7v-Tib">
-                                        <rect key="frame" x="228.33333333333337" y="16" width="167.66666666666663" height="28"/>
+                                        <rect key="frame" x="405.5" y="16" width="330.5" height="28"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Show AR">
                                             <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
@@ -97,7 +97,7 @@
                                 </constraints>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nII-oH-bga">
-                                <rect key="frame" x="0.0" y="44" width="428" height="96"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="102"/>
                                 <items>
                                     <navigationItem title="Host Ansicht" id="bDE-L7-L1y">
                                         <barButtonItem key="leftBarButtonItem" title="Dismiss" style="done" id="md4-qd-qbg">
@@ -114,7 +114,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DM4-FY-gc2">
-                                <rect key="frame" x="0.0" y="199.99999999999994" width="428" height="677.66666666666652"/>
+                                <rect key="frame" x="0.0" y="182" width="768" height="827.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="R14-Pv-CY6" id="3Ei-9h-ckC"/>
@@ -122,7 +122,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keine Verbindungen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg1-RV-mcq">
-                                <rect key="frame" x="16" y="877.66666666666663" width="396" height="14.333333333333371"/>
+                                <rect key="frame" x="16" y="1009.5" width="736" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -160,14 +160,14 @@
             <objects>
                 <viewController storyboardIdentifier="ClientViewController" id="xWp-0e-bcy" customClass="ClientViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="45y-T1-A2z">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pkS-k9-8mm">
-                                <rect key="frame" x="0.0" y="44" width="428" height="848"/>
+                                <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgl-9j-xWG">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="848"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                                         <connections>
                                             <segue destination="WYg-wh-HsG" kind="embed" identifier="Avatar View Controller" id="p0Q-HB-OM9"/>
                                         </connections>
@@ -205,17 +205,17 @@
             <objects>
                 <viewController storyboardIdentifier="GameViewController" id="aNP-xr-STb" customClass="GameViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0sJ-b7-A3x">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Das könnte das Spiel sein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-TW-Fhm">
-                                <rect key="frame" x="116.66666666666669" y="452.66666666666669" width="195" height="21"/>
+                                <rect key="frame" x="286.5" y="501.5" width="195" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69t-nB-ewp">
-                                <rect key="frame" x="180.66666666666666" y="350" width="67" height="31"/>
+                                <rect key="frame" x="350.5" y="399" width="67" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
@@ -242,14 +242,14 @@
             <objects>
                 <viewController storyboardIdentifier="QuestionGameViewController" id="wgD-xD-UNZ" customClass="QuestionGameViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hmR-fN-3oy">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="daK-bE-vds">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-T3-rhM">
-                                <rect key="frame" x="50" y="394" width="328" height="348"/>
+                                <rect key="frame" x="50" y="370" width="668" height="504"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CpF-X0-Idw">
                                     <size key="itemSize" width="128" height="128"/>
@@ -285,13 +285,20 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtX-RB-c2L">
-                                <rect key="frame" x="100" y="144" width="228" height="150"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtX-RB-c2L">
+                                <rect key="frame" x="100" y="170" width="568" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="rc6-BF-4So"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" metaFont="system" size="26"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -300,7 +307,7 @@
                         <constraints>
                             <constraint firstItem="5Hr-T3-rhM" firstAttribute="leading" secondItem="g5h-zL-vOD" secondAttribute="leading" constant="50" id="34r-eK-ack"/>
                             <constraint firstItem="g5h-zL-vOD" firstAttribute="trailing" secondItem="KtX-RB-c2L" secondAttribute="trailing" constant="100" id="5PU-FX-1Zs"/>
-                            <constraint firstItem="5Hr-T3-rhM" firstAttribute="top" secondItem="KtX-RB-c2L" secondAttribute="bottom" constant="100" id="JVa-Vw-0EF"/>
+                            <constraint firstItem="5Hr-T3-rhM" firstAttribute="top" secondItem="KtX-RB-c2L" secondAttribute="bottom" constant="50" id="JVa-Vw-0EF"/>
                             <constraint firstItem="daK-bE-vds" firstAttribute="centerX" secondItem="hmR-fN-3oy" secondAttribute="centerX" id="VVf-WQ-UgD"/>
                             <constraint firstItem="g5h-zL-vOD" firstAttribute="trailing" secondItem="5Hr-T3-rhM" secondAttribute="trailing" constant="50" id="Zya-y4-8Ln"/>
                             <constraint firstItem="daK-bE-vds" firstAttribute="centerY" secondItem="hmR-fN-3oy" secondAttribute="centerY" id="b3B-Qn-n7E"/>
@@ -308,10 +315,11 @@
                             <constraint firstItem="daK-bE-vds" firstAttribute="height" secondItem="hmR-fN-3oy" secondAttribute="height" id="jOY-UH-QNs"/>
                             <constraint firstItem="g5h-zL-vOD" firstAttribute="bottom" secondItem="5Hr-T3-rhM" secondAttribute="bottom" constant="150" id="v4x-nW-pj6"/>
                             <constraint firstItem="KtX-RB-c2L" firstAttribute="leading" secondItem="g5h-zL-vOD" secondAttribute="leading" constant="100" id="v7L-W5-PpX"/>
-                            <constraint firstItem="KtX-RB-c2L" firstAttribute="top" secondItem="g5h-zL-vOD" secondAttribute="top" constant="100" id="vuu-29-6t1"/>
+                            <constraint firstItem="KtX-RB-c2L" firstAttribute="top" secondItem="g5h-zL-vOD" secondAttribute="top" constant="150" id="vuu-29-6t1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="daK-bE-vds" id="Ggi-40-dNg"/>
                         <outlet property="collectionView" destination="5Hr-T3-rhM" id="N9O-cG-Rm2"/>
                         <outlet property="text" destination="KtX-RB-c2L" id="1ZZ-Sq-okI"/>
                     </connections>
@@ -325,11 +333,11 @@
             <objects>
                 <viewController storyboardIdentifier="ARViewController" id="0yR-zn-gx5" customClass="ARViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YP7-HW-Olx">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIy-GG-WAb">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </arscnView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5mp-ie-cve"/>
@@ -354,11 +362,11 @@
             <objects>
                 <viewController storyboardIdentifier="ARRealityKitViewController" id="GK0-9A-msr" customClass="ARRealityKitViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YJd-iI-tVG">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wf-cR-vnY">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </arView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eKh-54-uev"/>
@@ -383,11 +391,11 @@
             <objects>
                 <viewController storyboardIdentifier="AvatarViewController" id="WYg-wh-HsG" customClass="AvatarViewController" customModule="MakeMuseumsGreatAgain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GZR-zv-mlz">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="848"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0GE-UO-inl">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="848"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -410,7 +418,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="1600" height="1067"/>
+        <image name="background" width="810" height="1080"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

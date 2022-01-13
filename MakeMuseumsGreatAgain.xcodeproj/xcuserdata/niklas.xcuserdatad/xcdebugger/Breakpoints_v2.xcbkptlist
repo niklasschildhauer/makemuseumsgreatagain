@@ -46,8 +46,8 @@
             filePath = "MakeMuseumsGreatAgain/Views/ClientViews/GameViews/QuestionGameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "configure(answer:at:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -62,8 +62,8 @@
             filePath = "MakeMuseumsGreatAgain/Views/ClientViews/GameViews/QuestionGameViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "numberOfAnswers"
             landmarkType = "24">
          </BreakpointContent>

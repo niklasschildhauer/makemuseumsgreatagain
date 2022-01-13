@@ -81,6 +81,8 @@ extension ClientCoordinator: ClientCoordinatorProtocol {
                 self.showAvatarViewController()
             case .reload:
                 self.reloadViews()
+            case .dismiss:
+                self.rootViewController.dismiss(animated: true)
             }
         }
     }
