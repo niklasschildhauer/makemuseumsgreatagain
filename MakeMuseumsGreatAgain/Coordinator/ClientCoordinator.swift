@@ -79,7 +79,7 @@ extension ClientCoordinator: ClientCoordinatorProtocol {
                 self.showARViewController()
             case .showAvatar:
                 self.showAvatarViewController()
-            case .reloadAvatar:
+            case .reload:
                 self.reloadViews()
             }
         }

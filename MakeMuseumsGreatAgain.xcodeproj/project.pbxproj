@@ -30,6 +30,7 @@
 		8583D7952747F375000607CC /* StoryboardInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583D7942747F375000607CC /* StoryboardInitializable.swift */; };
 		85919B34274E3CEF00192D8F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85919B33274E3CEF00192D8F /* GameViewController.swift */; };
 		85AB3C91274E9D890020357D /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AB3C90274E9D890020357D /* ARViewController.swift */; };
+		85BECFB6278F168300E4A6D8 /* Labels.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 85BECFB5278F168300E4A6D8 /* Labels.rcproject */; };
 		85CEFEAE275B90EE00A02800 /* ProgressWebViewController in Frameworks */ = {isa = PBXBuildFile; productRef = 85CEFEAD275B90EE00A02800 /* ProgressWebViewController */; };
 		85CEFEB0275B931A00A02800 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CEFEAF275B931A00A02800 /* Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		8583D7942747F375000607CC /* StoryboardInitializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardInitializable.swift; sourceTree = "<group>"; };
 		85919B33274E3CEF00192D8F /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		85AB3C90274E9D890020357D /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		85BECFB5278F168300E4A6D8 /* Labels.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Labels.rcproject; sourceTree = "<group>"; };
 		85CEFEAF275B931A00A02800 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 		85060232275184920094E520 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				85BECFB5278F168300E4A6D8 /* Labels.rcproject */,
 				85060233275184A50094E520 /* Engine.rcproject */,
 				85027B092747E33C00E0D438 /* Main.storyboard */,
 				85027B0F2747E33E00E0D438 /* Assets.xcassets */,
@@ -269,6 +272,7 @@
 				85027B1C2747E37000E0D438 /* ConnectionManager.swift in Sources */,
 				85027B082747E33C00E0D438 /* MainViewController.swift in Sources */,
 				85027B042747E33C00E0D438 /* AppDelegate.swift in Sources */,
+				85BECFB6278F168300E4A6D8 /* Labels.rcproject in Sources */,
 				85919B34274E3CEF00192D8F /* GameViewController.swift in Sources */,
 				85027B0E2747E33C00E0D438 /* MakeMuseumsGreatAgain.xcdatamodeld in Sources */,
 				8583D7932747EFB9000607CC /* ClientViewController.swift in Sources */,
