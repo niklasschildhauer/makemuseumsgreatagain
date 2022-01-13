@@ -11,6 +11,7 @@ protocol QuestionGameViewing: AnyObject {
     var presenter: QuestionGamePresenting! { get set }
     
     func display(text: String)
+    func display(background: UIImage)
 }
 
 protocol QuestionGamePresenting {
@@ -41,6 +42,10 @@ class QuestionGamePresenter: QuestionGamePresenting {
     
     func viewDidLoad() {
         view?.display(text: question.text)
+        if let imageName = question.imageName,
+            let image = UIImage(named: imageName) {
+            view?.display(background: image)
+        }
     }
     
     func configure(answer: QuestionAnswerViewing, at index: Int) {
@@ -60,6 +65,8 @@ class QuestionGameViewController: UIViewController {
         }
     }
     @IBOutlet weak var text: UILabel!
+    @IBOutlet weak var backgroundImage: UIImageView!
+    @IBOutlet weak var textBackground: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -69,6 +76,9 @@ class QuestionGameViewController: UIViewController {
         collectionView.dataSource = self
         
         text.numberOfLines = 0
+        textBackground.blurBackground(behind: text)
+        
+        navigationController?.navigationBar.isHidden = true
         
         presenter.viewDidLoad()
     }
@@ -84,9 +94,10 @@ extension QuestionGameViewController: UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionAnswerCollectionView", for: indexPath) as! QuestionAnswerCollectionView
         
-        cell.blurBackground(behind: cell.background)
         cell.background.layer.cornerRadius = Constants.cornerRadius
         cell.background.clipsToBounds = true
+        cell.blurBackground(behind: cell.background)
+        
         
         presenter.configure(answer: cell, at: indexPath.row)
                         
@@ -116,6 +127,10 @@ extension QuestionGameViewController: UICollectionViewDelegateFlowLayout {
 
 
 extension QuestionGameViewController: QuestionGameViewing {
+    func display(background: UIImage) {
+        backgroundImage.image = background
+    }
+    
     func display(text: String) {
         self.text.text = text
     }

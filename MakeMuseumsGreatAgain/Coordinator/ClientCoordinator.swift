@@ -27,6 +27,8 @@ class ClientCoordinator: Coordinator {
     
     private var clientView: ClientViewController
     private var gameCoordinator: GameCoordinator = GameCoordinator()
+    private var stars: Int = 0
+    private var blocked = false
     
     var delegate: ClientCoordinatorDelegate?
     
@@ -50,6 +52,19 @@ class ClientCoordinator: Coordinator {
         self.clientView.show(viewController: gameView)
     }
     
+    private func showStarViewController(with stars: Int) {
+        self.clientView.hideViewController()
+
+
+        let starView = StarsViewController.makeFromStoryboard()
+        self.stars = self.stars + stars
+        starView.stars = self.stars
+        
+        starView.modalPresentationStyle = .overFullScreen
+        
+        clientView.show(viewController: starView)
+    }
+    
     private func showARViewController() {
         self.clientView.hideViewController()
 
@@ -69,6 +84,8 @@ class ClientCoordinator: Coordinator {
 extension ClientCoordinator: ClientCoordinatorProtocol {
     
     public func handle(event: Event) {
+        guard !blocked else { return }
+        blocked = true
         DispatchQueue.main.async {
             switch event {
             case .showGame(let gameEvent):
@@ -79,12 +96,16 @@ extension ClientCoordinator: ClientCoordinatorProtocol {
                 self.showARViewController()
             case .showAvatar:
                 self.showAvatarViewController()
-            case .reloadAvatar:
+            case .reload:
                 self.reloadViews()
+            case .dismiss:
+                self.rootViewController.dismiss(animated: true)
+            case .scroe(stars: let stars):
+                self.showStarViewController(with: stars)
             }
+            self.blocked = false
         }
     }
-    
 }
 
 extension ClientCoordinator: ClientPresenterDelegate {

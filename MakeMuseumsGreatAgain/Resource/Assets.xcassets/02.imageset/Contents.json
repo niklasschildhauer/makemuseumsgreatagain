@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "03-grunderzeit.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "04-mercedes.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
