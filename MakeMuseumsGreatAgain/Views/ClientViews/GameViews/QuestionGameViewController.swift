@@ -12,6 +12,8 @@ protocol QuestionGameViewing: AnyObject {
     
     func display(text: String)
     func display(background: UIImage)
+    func display(promptText: String)
+    func showStars()
 }
 
 protocol QuestionGamePresenting {
@@ -19,7 +21,7 @@ protocol QuestionGamePresenting {
     var numberOfAnswers: Int { get }
     
     func configure(answer: QuestionAnswerViewing, at index: Int)
-    func didTapAnswer(at index: Int)
+    func didTapAnswer(at index: Int, for cell: QuestionAnswerCollectionView)
     func viewDidLoad()
 }
 
@@ -27,10 +29,18 @@ protocol QuestionAnswerViewing {
     func display(text: String)
 }
 
+protocol QuestionGameDelegate {
+    func didEarn(points: Int)
+}
+
 class QuestionGamePresenter: QuestionGamePresenting {
+
     weak var view: QuestionGameViewing?
     
+    var delegate: QuestionGameDelegate?
+    
     private let question: Question
+    private var wrongAnswers: Int = 1
     
     var numberOfAnswers: Int {
         question.answers.count
@@ -51,10 +61,20 @@ class QuestionGamePresenter: QuestionGamePresenting {
     func configure(answer: QuestionAnswerViewing, at index: Int) {
         answer.display(text: question.answers[index].text)
     }
+
     
-    func didTapAnswer(at index: Int) {
-        print("did tap answer")
+    func didTapAnswer(at index: Int, for cell: QuestionAnswerCollectionView) {
+        if question.answers[index].isTrue {
+            cell.background.backgroundColor = UIColor(red: 48, green: 122, blue: 82, alpha: 1)
+            view?.showStars()
+            view?.display(promptText: "Glückwunsch! Du bekommst \(100/wrongAnswers) Sterne 🚀")
+            delegate?.didEarn(points: 100/wrongAnswers)
+        } else {
+            cell.background.backgroundColor = UIColor.init(red: 128, green: 43, blue: 43, alpha: 1)
+            wrongAnswers = wrongAnswers + 1
+        }
     }
+    
 }
 
 class QuestionGameViewController: UIViewController {
@@ -67,7 +87,11 @@ class QuestionGameViewController: UIViewController {
     @IBOutlet weak var text: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var textBackground: UIView!
+    @IBOutlet weak var promptText: UILabel!
+    @IBOutlet weak var promptTextWrapper: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var confettiView: SwiftConfettiView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +103,11 @@ class QuestionGameViewController: UIViewController {
         textBackground.blurBackground(behind: text)
         
         navigationController?.navigationBar.isHidden = true
+        
+        let confettiView = SwiftConfettiView(frame: self.view.bounds)
+        self.view.addSubview(confettiView)
+        self.confettiView = confettiView
+        confettiView.isHidden = true
         
         presenter.viewDidLoad()
     }
@@ -93,15 +122,20 @@ extension QuestionGameViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionAnswerCollectionView", for: indexPath) as! QuestionAnswerCollectionView
-        
-        cell.background.layer.cornerRadius = Constants.cornerRadius
-        cell.background.clipsToBounds = true
+    
         cell.blurBackground(behind: cell.background)
         
         
         presenter.configure(answer: cell, at: indexPath.row)
                         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! QuestionAnswerCollectionView
+        
+        presenter.didTapAnswer(at: indexPath.row, for: cell)
+        
     }
 }
 
@@ -127,12 +161,22 @@ extension QuestionGameViewController: UICollectionViewDelegateFlowLayout {
 
 
 extension QuestionGameViewController: QuestionGameViewing {
+    func showStars() {
+        confettiView?.isHidden = false
+        confettiView?.startConfetti()
+    }
+    
     func display(background: UIImage) {
         backgroundImage.image = background
     }
     
     func display(text: String) {
         self.text.text = text
+    }
+    
+    func display(promptText: String) {
+        self.promptText.text = promptText
+        self.promptTextWrapper.isHidden = false
     }
 }
 
