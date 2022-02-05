@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol GameCoordinatorDelegate {
-    
+    func didEarn(points: Int)
 }
 
 protocol GameCoordinatorProtocol {
@@ -33,6 +33,7 @@ class GameCoordinator: Coordinator {
     private func showQuestionViewController(with question: Question) {
         let view = QuestionGameViewController.makeFromStoryboard()
         let presenter = QuestionGamePresenter(question: question)
+        presenter.delegate = self
         
         view.presenter = presenter
         
@@ -52,7 +53,9 @@ extension GameCoordinator: GameCoordinatorProtocol {
     
 }
 
-extension GameCoordinator: GameCoordinatorDelegate {
-    
+extension GameCoordinator: QuestionGameDelegate {
+    func didEarn(points: Int) {
+        self.delegate?.didEarn(points: points)
+    }
 }
 

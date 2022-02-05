@@ -189,11 +189,19 @@
                                     <constraint firstAttribute="bottom" secondItem="Qgl-9j-xWG" secondAttribute="bottom" id="rr5-aS-Od7"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highscore: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfZ-1r-won">
+                                <rect key="frame" x="651" y="40" width="97" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OvS-mo-N64"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PfZ-1r-won" firstAttribute="top" secondItem="OvS-mo-N64" secondAttribute="top" constant="20" id="DuK-Qg-Nd6"/>
                             <constraint firstItem="OvS-mo-N64" firstAttribute="top" secondItem="pkS-k9-8mm" secondAttribute="top" id="E8l-9G-7Xi"/>
+                            <constraint firstItem="OvS-mo-N64" firstAttribute="trailing" secondItem="PfZ-1r-won" secondAttribute="trailing" constant="20" id="SqZ-zX-0i7"/>
                             <constraint firstAttribute="trailing" secondItem="pkS-k9-8mm" secondAttribute="trailing" id="U1n-ee-8hR"/>
                             <constraint firstItem="pkS-k9-8mm" firstAttribute="leading" secondItem="45y-T1-A2z" secondAttribute="leading" id="UrT-pV-quR"/>
                             <constraint firstItem="OvS-mo-N64" firstAttribute="bottom" secondItem="pkS-k9-8mm" secondAttribute="bottom" id="p4p-sJ-Q5K"/>
@@ -202,6 +210,7 @@
                     <connections>
                         <outlet property="avatarContainerView" destination="Qgl-9j-xWG" id="r0G-D8-lkp"/>
                         <outlet property="avatarWrapperView" destination="pkS-k9-8mm" id="FaS-JN-qGW"/>
+                        <outlet property="highScoreLabel" destination="PfZ-1r-won" id="lAN-KQ-OJc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2X-zV-Te3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -314,25 +323,47 @@
                                     <constraint firstAttribute="width" constant="608" id="ug4-CS-ukR"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04q-43-3ug">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLB-Yx-OTD">
+                                        <rect key="frame" x="344" y="494" width="80" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gLB-Yx-OTD" firstAttribute="centerY" secondItem="04q-43-3ug" secondAttribute="centerY" id="MJ4-84-ebR"/>
+                                    <constraint firstItem="gLB-Yx-OTD" firstAttribute="centerX" secondItem="04q-43-3ug" secondAttribute="centerX" id="pEj-Xi-I4Z"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g5h-zL-vOD"/>
                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                         <constraints>
                             <constraint firstItem="5Hr-T3-rhM" firstAttribute="top" secondItem="J84-Ul-hyL" secondAttribute="bottom" constant="125" id="2WX-Nn-dGZ"/>
                             <constraint firstItem="5Hr-T3-rhM" firstAttribute="leading" secondItem="g5h-zL-vOD" secondAttribute="leading" constant="50" id="34r-eK-ack"/>
+                            <constraint firstItem="04q-43-3ug" firstAttribute="leading" secondItem="g5h-zL-vOD" secondAttribute="leading" id="EUB-Bg-TNF"/>
                             <constraint firstItem="J84-Ul-hyL" firstAttribute="top" secondItem="g5h-zL-vOD" secondAttribute="top" constant="210" id="JiA-iH-bZq"/>
+                            <constraint firstItem="04q-43-3ug" firstAttribute="top" secondItem="hmR-fN-3oy" secondAttribute="top" id="ONd-av-RB9"/>
                             <constraint firstItem="J84-Ul-hyL" firstAttribute="centerX" secondItem="hmR-fN-3oy" secondAttribute="centerX" id="Rh8-GM-3V6"/>
                             <constraint firstItem="daK-bE-vds" firstAttribute="centerX" secondItem="hmR-fN-3oy" secondAttribute="centerX" id="VVf-WQ-UgD"/>
                             <constraint firstItem="g5h-zL-vOD" firstAttribute="trailing" secondItem="5Hr-T3-rhM" secondAttribute="trailing" constant="50" id="Zya-y4-8Ln"/>
                             <constraint firstItem="daK-bE-vds" firstAttribute="centerY" secondItem="hmR-fN-3oy" secondAttribute="centerY" id="b3B-Qn-n7E"/>
                             <constraint firstItem="daK-bE-vds" firstAttribute="width" secondItem="hmR-fN-3oy" secondAttribute="width" id="d2I-DQ-rnM"/>
+                            <constraint firstItem="g5h-zL-vOD" firstAttribute="bottom" secondItem="04q-43-3ug" secondAttribute="bottom" id="hwZ-gk-vCj"/>
                             <constraint firstItem="daK-bE-vds" firstAttribute="height" secondItem="hmR-fN-3oy" secondAttribute="height" id="jOY-UH-QNs"/>
                             <constraint firstItem="g5h-zL-vOD" firstAttribute="bottom" secondItem="5Hr-T3-rhM" secondAttribute="bottom" constant="175" id="v4x-nW-pj6"/>
+                            <constraint firstItem="g5h-zL-vOD" firstAttribute="trailing" secondItem="04q-43-3ug" secondAttribute="trailing" id="vJp-td-gmK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="daK-bE-vds" id="Ggi-40-dNg"/>
                         <outlet property="collectionView" destination="5Hr-T3-rhM" id="N9O-cG-Rm2"/>
+                        <outlet property="promptText" destination="gLB-Yx-OTD" id="rRK-24-sM0"/>
+                        <outlet property="promptTextWrapper" destination="04q-43-3ug" id="KVJ-Dp-eAZ"/>
                         <outlet property="text" destination="KtX-RB-c2L" id="1ZZ-Sq-okI"/>
                         <outlet property="textBackground" destination="J84-Ul-hyL" id="fHP-ab-k89"/>
                     </connections>

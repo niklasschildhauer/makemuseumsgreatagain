@@ -27,7 +27,11 @@ class ClientCoordinator: Coordinator {
     
     private var clientView: ClientViewController
     private var gameCoordinator: GameCoordinator = GameCoordinator()
-    private var stars: Int = 0
+    private var stars: Int = 0 {
+        didSet {
+            clientView.display(points: stars)
+        }
+    }
     private var blocked = false
     
     var delegate: ClientCoordinatorDelegate?
@@ -40,6 +44,7 @@ class ClientCoordinator: Coordinator {
         clientView.modalPresentationStyle = .overFullScreen
         
         clientViewController.presenter = clientPresenter
+
         clientPresenter.delegate = self
     }
     
@@ -48,6 +53,7 @@ class ClientCoordinator: Coordinator {
 
         let gameView = self.gameCoordinator.rootViewController
         gameCoordinator.handle(gameEvent: gameEvent)
+        gameCoordinator.delegate = self
         
         self.clientView.show(viewController: gameView)
     }
@@ -110,4 +116,10 @@ extension ClientCoordinator: ClientCoordinatorProtocol {
 
 extension ClientCoordinator: ClientPresenterDelegate {
     
+}
+
+extension ClientCoordinator: GameCoordinatorDelegate {
+    func didEarn(points: Int) {
+        self.stars = self.stars + points
+    }
 }

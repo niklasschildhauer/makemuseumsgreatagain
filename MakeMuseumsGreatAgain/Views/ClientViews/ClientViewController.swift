@@ -24,6 +24,7 @@ protocol ClientViewing: AnyObject {
     func show(viewController: UIViewController, animated: Bool)
     func hideViewController()
     func reload()
+    func display(points: Int)
 }
 
 class ClientViewController: UIViewController {
@@ -37,6 +38,7 @@ class ClientViewController: UIViewController {
     @IBOutlet var avatarContainerView: UIView!
     private var avatarViewController: AvatarViewing?
     @IBOutlet var avatarWrapperView: UIView!
+    @IBOutlet weak var highScoreLabel: UILabel!
     
     private var currentPresentingViewController: UIViewController?
      
@@ -60,6 +62,12 @@ class ClientViewController: UIViewController {
 extension ClientViewController: StoryboardInitializable { }
 
 extension ClientViewController: ClientViewing {
+    func display(points: Int) {
+        DispatchQueue.main.async {
+            self.highScoreLabel.text = "Highscore: \(points)"
+        }
+    }
+    
 
     func reload() {
         avatarViewController?.reload()
