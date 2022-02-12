@@ -325,19 +325,7 @@
                             </view>
                             <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04q-43-3ug">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLB-Yx-OTD">
-                                        <rect key="frame" x="344" y="494" width="80" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="gLB-Yx-OTD" firstAttribute="centerY" secondItem="04q-43-3ug" secondAttribute="centerY" id="MJ4-84-ebR"/>
-                                    <constraint firstItem="gLB-Yx-OTD" firstAttribute="centerX" secondItem="04q-43-3ug" secondAttribute="centerX" id="pEj-Xi-I4Z"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g5h-zL-vOD"/>
@@ -362,7 +350,6 @@
                     <connections>
                         <outlet property="backgroundImage" destination="daK-bE-vds" id="Ggi-40-dNg"/>
                         <outlet property="collectionView" destination="5Hr-T3-rhM" id="N9O-cG-Rm2"/>
-                        <outlet property="promptText" destination="gLB-Yx-OTD" id="rRK-24-sM0"/>
                         <outlet property="promptTextWrapper" destination="04q-43-3ug" id="KVJ-Dp-eAZ"/>
                         <outlet property="text" destination="KtX-RB-c2L" id="1ZZ-Sq-okI"/>
                         <outlet property="textBackground" destination="J84-Ul-hyL" id="fHP-ab-k89"/>

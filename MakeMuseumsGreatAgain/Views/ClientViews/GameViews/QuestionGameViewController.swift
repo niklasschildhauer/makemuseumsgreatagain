@@ -65,12 +65,11 @@ class QuestionGamePresenter: QuestionGamePresenting {
     
     func didTapAnswer(at index: Int, for cell: QuestionAnswerCollectionView) {
         if question.answers[index].isTrue {
-            cell.background.backgroundColor = UIColor(red: 48, green: 122, blue: 82, alpha: 1)
+            cell.background.backgroundColor = UIColor(red: 48/255.0, green: 122/255.0, blue: 82/255.0, alpha: 1)
             view?.showStars()
-            view?.display(promptText: "Glückwunsch! Du bekommst \(100/wrongAnswers) Sterne 🚀")
             delegate?.didEarn(points: 100/wrongAnswers)
         } else {
-            cell.background.backgroundColor = UIColor.init(red: 128, green: 43, blue: 43, alpha: 1)
+            cell.background.backgroundColor = UIColor(red: 128/255.0, green: 43/255.0, blue: 43/255.0, alpha: 1)
             wrongAnswers = wrongAnswers + 1
         }
     }
@@ -87,7 +86,6 @@ class QuestionGameViewController: UIViewController {
     @IBOutlet weak var text: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var textBackground: UIView!
-    @IBOutlet weak var promptText: UILabel!
     @IBOutlet weak var promptTextWrapper: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -175,8 +173,6 @@ extension QuestionGameViewController: QuestionGameViewing {
     }
     
     func display(promptText: String) {
-        self.promptText.text = promptText
-        self.promptTextWrapper.isHidden = false
     }
 }
 
